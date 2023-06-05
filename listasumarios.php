@@ -100,6 +100,7 @@ $_SESSION['mensagem'] = '';
                                     </select>
                                     <button class="btn btn-outline-primary ml-3" id="procurarDisciplina" type="button">Procurar</button>
                                 </div>
+                                <script src="xlsx.full.min.js"></script>
                             </div>
                         </div>
                     </div>
@@ -309,7 +310,33 @@ $_SESSION['mensagem'] = '';
             </thead>
             <tbody> </tbody>
         </table>
+        <div class="row text-center">
+        <button onclick="exportTableToExcel('novaPesquisa', 'sumarios')" class="btn btn-outline-secondary" id="retroceder">EXCEL</button>
     </div>
+    </div>
+    <script>
+    function exportTableToExcel(tableId, filename = 'tabela_excel') {
+  var wb = XLSX.utils.table_to_book(document.getElementById(tableId), { sheet: "Sheet JS" });
+  var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
+
+  function s2ab(s) {
+    var buf = new ArrayBuffer(s.length);
+    var view = new Uint8Array(buf);
+    for (var i = 0; i < s.length; i++) {
+      view[i] = s.charCodeAt(i) & 0xFF;
+    }
+    return buf;
+  }
+
+  var blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+
+  var link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = filename + '.xlsx';
+  link.click();
+}
+    </script>
+     <script src="js/xlsx.full.min.js"></script>
 
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -318,9 +345,8 @@ $_SESSION['mensagem'] = '';
 
             $("#mensagem").hide()
 
-        }, 2000);
-    </script>
-
+        }, 2000); 
+</script>
 </body>
 
 </html>
