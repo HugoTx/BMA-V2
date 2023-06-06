@@ -37,7 +37,7 @@ $_SESSION['mensagem'] = '';
         <a href="entrada.php"><button class="btn btn-outline-secondary" id="retroceder">Retroceder</button></a>
     </div>
 
-
+    
     <!-- ***************** POR DISCIPLINA ************************** -->
     <script>
         $(document).ready(function() {
@@ -98,9 +98,8 @@ $_SESSION['mensagem'] = '';
                                         <option value="Trompa">Trompa</option>
                                         <option value="Trompete">Trompete</option>
                                     </select>
-                                    <button class="btn btn-outline-primary ml-3" id="procurarDisciplina" type="button">Procurar</button>
+                                    <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarDisciplina" type="button">Procurar</button>
                                 </div>
-                                <script src="xlsx.full.min.js"></script>
                             </div>
                         </div>
                     </div>
@@ -149,7 +148,7 @@ $_SESSION['mensagem'] = '';
                                 <div class="form-group mt-4">
                                     <form action="" method="POST">
                                         <input type="text" class="form-group" id="nome" name="nomeAluno" placeholder="Turma / Aluno">
-                                        <button class="btn btn-outline-primary ml-3" id="procurarAluno" type="button">Procurar</button>
+                                        <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarAluno" type="button">Procurar</button>
                                     </form>
                                 </div>
                             </div>
@@ -225,7 +224,7 @@ $_SESSION['mensagem'] = '';
                                                 <option value="Trompa">Trompa</option>
                                                 <option value="Trompete">Trompete</option>
                                             </select>
-                                            <button class="btn btn-outline-primary ml-3" id="procurarDisciplinaData" type="button">Procurar</button>
+                                            <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarDisciplinaData" type="button">Procurar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -284,7 +283,7 @@ $_SESSION['mensagem'] = '';
                                         <div class="mb-1 mt-1">
                                             <input type="text" class="form-group" id="nomeAlunoData" name="nomeAlunoData" placeholder="Turma / Aluno">
 
-                                            <button class="btn btn-outline-primary ml-3" id="procurarAlunoData" type="button">Procurar</button>
+                                            <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarAlunoData" type="button">Procurar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -297,7 +296,7 @@ $_SESSION['mensagem'] = '';
         </div>
     </div>
 
-    <div class="container w-100 mt-4 mb-4 ">
+    <div class="container w-100 mt-4 mb-4 d-none" id="table_sumario">
         <table class="table w-100 table-striped table-primary table-bordered table-hover table-responsive mt-4" id="novaPesquisa">
             <thead>
                 <tr>
@@ -310,34 +309,44 @@ $_SESSION['mensagem'] = '';
             </thead>
             <tbody> </tbody>
         </table>
-        <div class="row text-center">
-        <button onclick="exportTableToExcel('novaPesquisa', 'sumarios')" class="btn btn-outline-secondary" id="retroceder">EXCEL</button>
-    </div>
+        <div class="d-flex flex-row-reverse">
+            <button onclick="exportTableToExcel('novaPesquisa', 'sumarios')" class="btn btn-outline-primary ml-3" id="retroceder">Exportar Excel</button>
+        </div>
     </div>
     <script>
+
+        // Excel ****************************************************************
     function exportTableToExcel(tableId, filename = 'tabela_excel') {
-  var wb = XLSX.utils.table_to_book(document.getElementById(tableId), { sheet: "Sheet JS" });
-  var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
+        var wb = XLSX.utils.table_to_book(document.getElementById(tableId), { sheet: "Sheet JS" });
+        var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
 
-  function s2ab(s) {
-    var buf = new ArrayBuffer(s.length);
-    var view = new Uint8Array(buf);
-    for (var i = 0; i < s.length; i++) {
-      view[i] = s.charCodeAt(i) & 0xFF;
+    function s2ab(s) {
+        var buf = new ArrayBuffer(s.length);
+        var view = new Uint8Array(buf);
+        for (var i = 0; i < s.length; i++) {
+        view[i] = s.charCodeAt(i) & 0xFF;
+        }
+        return buf;
     }
-    return buf;
-  }
 
-  var blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+        var blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
 
-  var link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = filename + '.xlsx';
-  link.click();
-}
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename + '.xlsx';
+        link.click();
+    }
+
+    // altera a class
+    function alterClass(){
+        const tableClass = document.getElementById('table_sumario');
+        
+        tableClass.classList.remove('d-none');
+
+    }
+
     </script>
-     <script src="js/xlsx.full.min.js"></script>
-
+    <script src="js/xlsx.full.min.js"></script>
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
