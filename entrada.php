@@ -128,7 +128,6 @@ $_SESSION['mensagem'] = '';
             </div>
         </div>
     </div>
-
     <!-- REGISTAR PROFESSOR -->
     <?php
     if ($_SESSION['tipo'] == 1) {
