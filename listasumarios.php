@@ -18,13 +18,14 @@ $_SESSION['mensagem'] = '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMA</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-icons.css">
-
-
+    
 </head>
 
 <body>
+    <div id="back">
     <!--logo-->
     <?php
     require("includes/menu.php");
@@ -39,36 +40,7 @@ $_SESSION['mensagem'] = '';
 
     
     <!-- ***************** POR DISCIPLINA ************************** -->
-    <script>
-        $(document).ready(function() {
-            $("#procurarDisciplina").click(function() {
-                $("#novaPesquisa tbody").find("tr").remove();
-                var disc = $("#disciplina").val();
-                $.getJSON("includes/APIsumarios.php?acao=listaSumarios&disciplina=" + disc,
-                    function(listaSumarios) {
-                        for (x = 0; x < listaSumarios.disciplinas.length; x++) {
-                            var row = listaSumarios.disciplinas[x];
-                            var sumarios =
-                                '<tr id="linha" class="table-light">' +
-                                '<td class="text-center align-middle" id="licao">' + row
-                                .licao + '</td>' +
-                                '<td class="text-center align-middle" id="dataaula">' + row
-                                .dataaula + '</td>' +
-                                '<td class="text-center align-middle" id="turma_aluno">' + row
-                                .turma_aluno + '</td>' +
-                                '<td class="text-center align-middle" id="nomeAnimal">' +
-                                row.disciplina + '</td>' +
-                                '<td class="text-center align-middle" id="telefone">' +
-                                row.sumario + '</td>' +
-                                '</tr>';
-                            $('#novaPesquisa').find('tbody').append(sumarios);
-                        }
-                    });
-            });
-        });
-    </script>
-
-    <div class="container mt-5">
+       <div class="container mt-5">
         <div class="row">
             <div class="col-xl col-md-6 mb-4 ms-2">
                 <div class="card border-left-primary shadow h-100 py-2">
@@ -107,35 +79,6 @@ $_SESSION['mensagem'] = '';
             </div>
 
             <!--********** POR TURMA / ALUNO ***************-->
-
-            <script>
-                $(document).ready(function() {
-                    $("#procurarAluno").click(function() {
-                        $("#novaPesquisa tbody").find("tr").remove();
-                        var nome = $("#nome").val();
-                        $.getJSON("includes/APIsumarios.php?acao=listaSumariosaluno&nome=" + nome,
-                            function(listaSumariosaluno) {
-                                for (x = 0; x < listaSumariosaluno.alunos.length; x++) {
-                                    var row = listaSumariosaluno.alunos[x];
-                                    var sumarios =
-                                        '<tr id="linha" class="table-light">' +
-                                        '<td class="text-center align-middle" id="licao">' + row
-                                        .licao + '</td>' +
-                                        '<td class="text-center align-middle" id="dataaula">' + row
-                                        .dataaula + '</td>' +
-                                        '<td class="text-center align-middle" id="turma_aluno">' + row
-                                        .turma_aluno + '</td>' +
-                                        '<td class="text-center align-middle" id="nomeAnimal">' +
-                                        row.disciplina + '</td>' +
-                                        '<td class="text-center align-middle" id="telefone">' +
-                                        row.sumario + '</td>' +
-                                        '</tr>';
-                                    $('#novaPesquisa').find('tbody').append(sumarios);
-                                }
-                            });
-                    });
-                });
-            </script>
             <div class="col-xl col-md-6 mb-4 ms-2">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
@@ -160,37 +103,6 @@ $_SESSION['mensagem'] = '';
         </div>
 
         <!-- ********** DISCIPLINAS POR DATA *************** -->
-        <script>
-            $(document).ready(function() {
-                $("#procurarDisciplinaData").click(function() {
-                    $("#novaPesquisa tbody").find("tr").remove();
-                    var dataIn = $("#dataInicio").val();
-                    var dataF = $("#dataFim").val();
-                    var dis = $("#disciplinaData").val();
-                    $.getJSON("includes/APIsumarios.php?acao=listaSumariosDataDisciplina&dataIni=" + dataIn + "&dataFim=" + dataF + "&disciplina=" + dis,
-                        function(listaSumariosDataDisciplina) {
-                            for (x = 0; x < listaSumariosDataDisciplina.disciplinas.length; x++) {
-                                var row = listaSumariosDataDisciplina.disciplinas[x];
-                                var sumarios =
-                                    '<tr id="linha" class="table-light">' +
-                                    '<td class="text-center align-middle" id="licao">' + row
-                                    .licao + '</td>' +
-                                    '<td class="text-center align-middle" id="dataaula">' + row
-                                    .dataaula + '</td>' +
-                                    '<td class="text-center align-middle" id="turma_aluno">' + row
-                                    .turma_aluno + '</td>' +
-                                    '<td class="text-center align-middle" id="nomeAnimal">' +
-                                    row.disciplina + '</td>' +
-                                    '<td class="text-center align-middle" id="telefone">' +
-                                    row.sumario + '</td>' +
-                                    '</tr>';
-                                $('#novaPesquisa').find('tbody').append(sumarios);
-                            }
-                        });
-                });
-            });
-        </script>
-
         <div class="row">
             <div class="col-xl col-md-6 mb-4 ms-2">
                 <div class="card border-left-primary shadow h-100 py-2">
@@ -235,38 +147,6 @@ $_SESSION['mensagem'] = '';
             </div>
 
             <!-- ********** ALUNOS POR DATA *************** -->
-            <script>
-                $(document).ready(function() {
-                    $("#procurarAlunoData").click(function() {
-                        $("#novaPesquisa tbody").find("tr").remove();
-                        var dataIn = $("#dataInicioAluno").val();
-                        var dataF = $("#dataFimAluno").val();
-                        var nome = $("#nomeAlunoData").val();
-                        console.log(dataIn, dataF, nome);
-                        $.getJSON("includes/APIsumarios.php?acao=listaSumariosDataAluno&dataIni=" + dataIn + "&dataFim=" + dataF + "&nome=" + nome,
-                            function(listaSumariosDataAluno) {
-                                for (x = 0; x < listaSumariosDataAluno.disciplinas.length; x++) {
-                                    var row = listaSumariosDataAluno.disciplinas[x];
-                                    var sumarios =
-                                        '<tr id="linha" class="table-light">' +
-                                        '<td class="text-center align-middle" id="licao">' + row
-                                        .licao + '</td>' +
-                                        '<td class="text-center align-middle" id="dataaula">' + row
-                                        .dataaula + '</td>' +
-                                        '<td class="text-center align-middle" id="turma_aluno">' + row
-                                        .turma_aluno + '</td>' +
-                                        '<td class="text-center align-middle" id="nomeAnimal">' +
-                                        row.disciplina + '</td>' +
-                                        '<td class="text-center align-middle" id="telefone">' +
-                                        row.sumario + '</td>' +
-                                        '</tr>';
-                                    $('#novaPesquisa').find('tbody').append(sumarios);
-                                }
-                            });
-                    });
-                });
-            </script>
-
             <div class="col-xl col-md-6 mb-4 ms-2">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
@@ -313,42 +193,10 @@ $_SESSION['mensagem'] = '';
             <button onclick="exportTableToExcel('novaPesquisa', 'sumarios')" class="btn btn-outline-primary ml-3" id="retroceder">Exportar Excel</button>
         </div>
     </div>
-    <script>
-
-        // Excel ****************************************************************
-    function exportTableToExcel(tableId, filename = 'tabela_excel') {
-        var wb = XLSX.utils.table_to_book(document.getElementById(tableId), { sheet: "Sheet JS" });
-        var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
-
-    function s2ab(s) {
-        var buf = new ArrayBuffer(s.length);
-        var view = new Uint8Array(buf);
-        for (var i = 0; i < s.length; i++) {
-        view[i] = s.charCodeAt(i) & 0xFF;
-        }
-        return buf;
-    }
-
-        var blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
-
-        var link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = filename + '.xlsx';
-        link.click();
-    }
-
-    // altera a class
-    function alterClass(){
-        const tableClass = document.getElementById('table_sumario');
-        
-        tableClass.classList.remove('d-none');
-
-    }
-
-    </script>
     <script src="js/xlsx.full.min.js"></script>
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    
     <script>
         setTimeout(function() {
 
@@ -356,6 +204,7 @@ $_SESSION['mensagem'] = '';
 
         }, 2000); 
 </script>
+</div>
 </body>
 
 </html>
