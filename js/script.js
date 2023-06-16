@@ -1,3 +1,4 @@
+//***************** LISTAR SUMÁRIOS ************************* -->
 //***************** POR DISCIPLINA ************************** -->
 $(document).ready(function () {
   $('#procurarDisciplina').click(function () {
@@ -153,9 +154,9 @@ $(document).ready(function () {
   });
 });
 
-// Mostrar a table com os sumários
+// Mostrar a table
 function alterClass() {
-  const tableClass = document.getElementById('table_sumario');
+  const tableClass = document.getElementById('table_sumario_faltas');
 
   tableClass.classList.remove('d-none');
 }
@@ -183,3 +184,39 @@ function exportTableToExcel(tableId, filename = 'tabela_excel') {
   link.download = filename + '.xlsx';
   link.click();
 }
+
+//***************** LISTAR FALTAS ************************* -->
+// ***************** POR DISCIPLINA ************************** -->
+$(document).ready(function () {
+  $('#procurarDisciplina').click(function () {
+    $('#novaPesquisaFaltas tbody').find('tr').remove();
+    var disc = $('#disciplina').val();
+    $.getJSON(
+      'includes/APIfaltas.php?acao=listaFaltas&disciplina=' + disc,
+      function (listaFaltas) {
+        for (x = 0; x < listaFaltas.disciplinas.length; x++) {
+          var row = listaFaltas.disciplinas[x];
+          var faltas =
+            '<tr id="linha" class="table-light">' +
+            '<td class="text-center align-middle" id="licao">' +
+            row.licao +
+            '</td>' +
+            '<td class="text-center align-middle" id="dataaula">' +
+            row.dataaula +
+            '</td>' +
+            '<td class="text-center align-middle" id="turma_aluno">' +
+            row.aluno +
+            '</td>' +
+            '<td class="text-center align-middle" id="nomeAnimal">' +
+            row.disciplina +
+            '</td>' +
+            '<td class="text-center align-middle" id="telefone">' +
+            row.falta +
+            '</td>' +
+            '</tr>';
+          $('#novaPesquisaFaltas').find('tbody').append(faltas);
+        }
+      }
+    );
+  });
+});

@@ -18,6 +18,7 @@ $_SESSION['mensagem'] = '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMA</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-icons.css">
 
@@ -39,35 +40,6 @@ $_SESSION['mensagem'] = '';
 
 
     <!-- ***************** POR DISCIPLINA ************************** -->
-    <script>
-        $(document).ready(function() {
-            $("#procurarDisciplina").click(function() {
-                $("#novaPesquisa tbody").find("tr").remove();
-                var disc = $("#disciplina").val();
-                $.getJSON("includes/APIfaltas.php?acao=listaFaltas&disciplina=" + disc,
-                    function(listaFaltas) {
-                        for (x = 0; x < listaFaltas.disciplinas.length; x++) {
-                            var row = listaFaltas.disciplinas[x];
-                            var faltas =
-                                '<tr id="linha" class="table-light">' +
-                                '<td class="text-center align-middle" id="licao">' + row
-                                .licao + '</td>' +
-                                '<td class="text-center align-middle" id="dataaula">' + row
-                                .dataaula + '</td>' +
-                                '<td class="text-center align-middle" id="turma_aluno">' + row
-                                .aluno + '</td>' +
-                                '<td class="text-center align-middle" id="nomeAnimal">' +
-                                row.disciplina + '</td>' +
-                                '<td class="text-center align-middle" id="telefone">' +
-                                row.falta + '</td>' +
-                                '</tr>';
-                            $('#novaPesquisa').find('tbody').append(faltas);
-                        }
-                    });
-            });
-        });
-    </script>
-
     <div class="container mt-5">
         <div class="row">
             <div class="col-xl col-md-6 mb-4 ms-2">
@@ -98,7 +70,7 @@ $_SESSION['mensagem'] = '';
                                         <option value="Trompa">Trompa</option>
                                         <option value="Trompete">Trompete</option>
                                     </select>
-                                    <button class="btn btn-outline-primary ml-3" id="procurarDisciplina" type="button">Procurar</button>
+                                    <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarDisciplina" type="button">Procurar</button>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +83,7 @@ $_SESSION['mensagem'] = '';
             <script>
                 $(document).ready(function() {
                     $("#procurarAluno").click(function() {
-                        $("#novaPesquisa tbody").find("tr").remove();
+                        $("#novaPesquisaFaltas tbody").find("tr").remove();
                         var nome = $("#nome").val();
                         $.getJSON("includes/APIfaltas.php?acao=listaFaltasaluno&nome=" + nome,
                             function(listaFaltasaluno) {
@@ -130,7 +102,7 @@ $_SESSION['mensagem'] = '';
                                         '<td class="text-center align-middle" id="telefone">' +
                                         row.falta + '</td>' +
                                         '</tr>';
-                                    $('#novaPesquisa').find('tbody').append(faltas);
+                                    $('#novaPesquisaFaltas').find('tbody').append(faltas);
                                 }
                             });
                     });
@@ -148,7 +120,7 @@ $_SESSION['mensagem'] = '';
                                 <div class="form-group mt-4">
                                     <form action="" method="POST">
                                         <input type="text" class="form-group" id="nome" name="nomeAluno" placeholder="Turma / Aluno">
-                                        <button class="btn btn-outline-primary ml-3" id="procurarAluno" type="button">Procurar</button>
+                                        <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarAluno" type="button">Procurar</button>
                                     </form>
                                 </div>
                             </div>
@@ -296,8 +268,8 @@ $_SESSION['mensagem'] = '';
         </div>
     </div>
 
-    <div class="container w-100 mt-4 mb-4 ">
-        <table class="table w-100 table-striped table-primary table-bordered table-hover table-responsive mt-4" id="novaPesquisa">
+    <div class="container w-100 mt-4 mb-4 d-none" id="table_sumario_faltas">
+        <table class="table w-100 table-striped table-primary table-bordered table-hover table-responsive mt-4" id="novaPesquisaFaltas">
             <thead>
                 <tr>
                     <th scope="col" class="text-center ">Lição </th>

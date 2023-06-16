@@ -176,7 +176,7 @@ $_SESSION['mensagem'] = '';
         </div>
     </div>
 
-    <div class="container w-100 mt-4 mb-4 d-none" id="table_sumario">
+    <div class="container w-100 mt-4 mb-4 d-none" id="table_sumario_faltas">
         <table class="table w-100 table-striped table-primary table-bordered table-hover table-responsive mt-4" id="novaPesquisa">
             <thead>
                 <tr>
