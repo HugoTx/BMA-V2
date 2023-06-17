@@ -1,0 +1,20 @@
+.color-background {
+  background: rgb(17, 9, 152);
+  background: linear-gradient(
+    353deg,
+    rgba(17, 9, 152, 1) 0%,
+    rgba(9, 9, 121, 1) 23%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.border1 {
+  border: 2px solid #0b51a2;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
