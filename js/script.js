@@ -220,3 +220,123 @@ $(document).ready(function () {
     );
   });
 });
+
+//********** POR TURMA / ALUNO ***************-->
+$(document).ready(function () {
+  $('#procurarAluno').click(function () {
+    $('#novaPesquisaFaltas tbody').find('tr').remove();
+    var nome = $('#nome').val();
+    $.getJSON(
+      'includes/APIfaltas.php?acao=listaFaltasaluno&nome=' + nome,
+      function (listaFaltasaluno) {
+        for (x = 0; x < listaFaltasaluno.alunos.length; x++) {
+          var row = listaFaltasaluno.alunos[x];
+          var faltas =
+            '<tr id="linha" class="table-light">' +
+            '<td class="text-center align-middle" id="licao">' +
+            row.licao +
+            '</td>' +
+            '<td class="text-center align-middle" id="dataaula">' +
+            row.dataaula +
+            '</td>' +
+            '<td class="text-center align-middle" id="turma_aluno">' +
+            row.aluno +
+            '</td>' +
+            '<td class="text-center align-middle" id="nomeAnimal">' +
+            row.disciplina +
+            '</td>' +
+            '<td class="text-center align-middle" id="telefone">' +
+            row.falta +
+            '</td>' +
+            '</tr>';
+          $('#novaPesquisaFaltas').find('tbody').append(faltas);
+        }
+      }
+    );
+  });
+});
+
+//********** DISCIPLINAS POR DATA *************** -->
+$(document).ready(function () {
+  $('#procurarDisciplinaData').click(function () {
+    $('#novaPesquisaFaltas tbody').find('tr').remove();
+    var dataIn = $('#dataInicio').val();
+    var dataF = $('#dataFim').val();
+    var dis = $('#disciplinaData').val();
+    $.getJSON(
+      'includes/APIfaltas.php?acao=listaFaltasDataDisciplina&dataIni=' +
+        dataIn +
+        '&dataFim=' +
+        dataF +
+        '&disciplina=' +
+        dis,
+      function (listaFaltasDataDisciplina) {
+        for (x = 0; x < listaFaltasDataDisciplina.disciplinas.length; x++) {
+          var row = listaFaltasDataDisciplina.disciplinas[x];
+          var faltas =
+            '<tr id="linha" class="table-light">' +
+            '<td class="text-center align-middle" id="licao">' +
+            row.licao +
+            '</td>' +
+            '<td class="text-center align-middle" id="dataaula">' +
+            row.dataaula +
+            '</td>' +
+            '<td class="text-center align-middle" id="turma_aluno">' +
+            row.aluno +
+            '</td>' +
+            '<td class="text-center align-middle" id="nomeAnimal">' +
+            row.disciplina +
+            '</td>' +
+            '<td class="text-center align-middle" id="telefone">' +
+            row.falta +
+            '</td>' +
+            '</tr>';
+          $('#novaPesquisaFaltas').find('tbody').append(faltas);
+        }
+      }
+    );
+  });
+});
+
+// ********** ALUNOS POR DATA *************** -->
+$(document).ready(function () {
+  $('#procurarAlunoData').click(function () {
+    $('#novaPesquisaFaltas tbody').find('tr').remove();
+    var dataIn = $('#dataInicioAluno').val();
+    var dataF = $('#dataFimAluno').val();
+    var nome = $('#nomeAlunoData').val();
+    console.log(dataIn, dataF, nome);
+    $.getJSON(
+      'includes/APIfaltas.php?acao=listaFaltasDataAluno&dataIni=' +
+        dataIn +
+        '&dataFim=' +
+        dataF +
+        '&nome=' +
+        nome,
+      function (listaFaltasDataAluno) {
+        for (x = 0; x < listaFaltasDataAluno.disciplinas.length; x++) {
+          var row = listaFaltasDataAluno.disciplinas[x];
+          var faltas =
+            '<tr id="linha" class="table-light">' +
+            '<td class="text-center align-middle" id="licao">' +
+            row.licao +
+            '</td>' +
+            '<td class="text-center align-middle" id="dataaula">' +
+            row.dataaula +
+            '</td>' +
+            '<td class="text-center align-middle" id="turma_aluno">' +
+            row.aluno +
+            '</td>' +
+            '<td class="text-center align-middle" id="nomeAnimal">' +
+            row.disciplina +
+            '</td>' +
+            '<td class="text-center align-middle" id="telefone">' +
+            row.falta +
+            '</td>' +
+            '</tr>';
+          $('#novaPesquisaFaltas').find('tbody').append(faltas);
+        }
+      }
+    );
+  });
+});

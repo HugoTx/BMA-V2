@@ -79,35 +79,6 @@ $_SESSION['mensagem'] = '';
             </div>
 
             <!--********** POR TURMA / ALUNO ***************-->
-
-            <script>
-                $(document).ready(function() {
-                    $("#procurarAluno").click(function() {
-                        $("#novaPesquisaFaltas tbody").find("tr").remove();
-                        var nome = $("#nome").val();
-                        $.getJSON("includes/APIfaltas.php?acao=listaFaltasaluno&nome=" + nome,
-                            function(listaFaltasaluno) {
-                                for (x = 0; x < listaFaltasaluno.alunos.length; x++) {
-                                    var row = listaFaltasaluno.alunos[x];
-                                    var faltas =
-                                        '<tr id="linha" class="table-light">' +
-                                        '<td class="text-center align-middle" id="licao">' + row
-                                        .licao + '</td>' +
-                                        '<td class="text-center align-middle" id="dataaula">' + row
-                                        .dataaula + '</td>' +
-                                        '<td class="text-center align-middle" id="turma_aluno">' + row
-                                        .aluno + '</td>' +
-                                        '<td class="text-center align-middle" id="nomeAnimal">' +
-                                        row.disciplina + '</td>' +
-                                        '<td class="text-center align-middle" id="telefone">' +
-                                        row.falta + '</td>' +
-                                        '</tr>';
-                                    $('#novaPesquisaFaltas').find('tbody').append(faltas);
-                                }
-                            });
-                    });
-                });
-            </script>
             <div class="col-xl col-md-6 mb-4 ms-2">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
@@ -132,37 +103,6 @@ $_SESSION['mensagem'] = '';
         </div>
 
         <!-- ********** DISCIPLINAS POR DATA *************** -->
-        <script>
-            $(document).ready(function() {
-                $("#procurarDisciplinaData").click(function() {
-                    $("#novaPesquisa tbody").find("tr").remove();
-                    var dataIn = $("#dataInicio").val();
-                    var dataF = $("#dataFim").val();
-                    var dis = $("#disciplinaData").val();
-                    $.getJSON("includes/APIfaltas.php?acao=listaFaltasDataDisciplina&dataIni=" + dataIn + "&dataFim=" + dataF + "&disciplina=" + dis,
-                        function(listaFaltasDataDisciplina) {
-                            for (x = 0; x < listaFaltasDataDisciplina.disciplinas.length; x++) {
-                                var row = listaFaltasDataDisciplina.disciplinas[x];
-                                var faltas =
-                                    '<tr id="linha" class="table-light">' +
-                                    '<td class="text-center align-middle" id="licao">' + row
-                                    .licao + '</td>' +
-                                    '<td class="text-center align-middle" id="dataaula">' + row
-                                    .dataaula + '</td>' +
-                                    '<td class="text-center align-middle" id="turma_aluno">' + row
-                                    .aluno + '</td>' +
-                                    '<td class="text-center align-middle" id="nomeAnimal">' +
-                                    row.disciplina + '</td>' +
-                                    '<td class="text-center align-middle" id="telefone">' +
-                                    row.falta + '</td>' +
-                                    '</tr>';
-                                $('#novaPesquisa').find('tbody').append(faltas);
-                            }
-                        });
-                });
-            });
-        </script>
-
         <div class="row">
             <div class="col-xl col-md-6 mb-4 ms-2">
                 <div class="card border-left-primary shadow h-100 py-2">
@@ -196,7 +136,7 @@ $_SESSION['mensagem'] = '';
                                                 <option value="Trompa">Trompa</option>
                                                 <option value="Trompete">Trompete</option>
                                             </select>
-                                            <button class="btn btn-outline-primary ml-3" id="procurarDisciplinaData" type="button">Procurar</button>
+                                            <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarDisciplinaData" type="button">Procurar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -207,38 +147,6 @@ $_SESSION['mensagem'] = '';
             </div>
 
             <!-- ********** ALUNOS POR DATA *************** -->
-            <script>
-                $(document).ready(function() {
-                    $("#procurarAlunoData").click(function() {
-                        $("#novaPesquisa tbody").find("tr").remove();
-                        var dataIn = $("#dataInicioAluno").val();
-                        var dataF = $("#dataFimAluno").val();
-                        var nome = $("#nomeAlunoData").val();
-                        console.log(dataIn, dataF, nome);
-                        $.getJSON("includes/APIfaltas.php?acao=listaFaltasDataAluno&dataIni=" + dataIn + "&dataFim=" + dataF + "&nome=" + nome,
-                            function(listaFaltasDataAluno) {
-                                for (x = 0; x < listaFaltasDataAluno.disciplinas.length; x++) {
-                                    var row = listaFaltasDataAluno.disciplinas[x];
-                                    var faltas =
-                                        '<tr id="linha" class="table-light">' +
-                                        '<td class="text-center align-middle" id="licao">' + row
-                                        .licao + '</td>' +
-                                        '<td class="text-center align-middle" id="dataaula">' + row
-                                        .dataaula + '</td>' +
-                                        '<td class="text-center align-middle" id="turma_aluno">' + row
-                                        .aluno + '</td>' +
-                                        '<td class="text-center align-middle" id="nomeAnimal">' +
-                                        row.disciplina + '</td>' +
-                                        '<td class="text-center align-middle" id="telefone">' +
-                                        row.falta + '</td>' +
-                                        '</tr>';
-                                    $('#novaPesquisa').find('tbody').append(faltas);
-                                }
-                            });
-                    });
-                });
-            </script>
-
             <div class="col-xl col-md-6 mb-4 ms-2">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
@@ -255,7 +163,7 @@ $_SESSION['mensagem'] = '';
                                         <div class="mb-1 mt-1">
                                             <input type="text" class="form-group" id="nomeAlunoData" name="nomeAlunoData" placeholder="Turma / Aluno">
 
-                                            <button class="btn btn-outline-primary ml-3" id="procurarAlunoData" type="button">Procurar</button>
+                                            <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarAlunoData" type="button">Procurar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -281,8 +189,12 @@ $_SESSION['mensagem'] = '';
             </thead>
             <tbody> </tbody>
         </table>
+        <div class="d-flex flex-row-reverse">
+            <button onclick="exportTableToExcel('novaPesquisaFaltas', 'faltas')" class="btn btn-outline-primary ml-3" id="retroceder">Exportar Excel</button>
+        </div>
+        
     </div>
-
+    <script src="js/xlsx.full.min.js"></script>
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
