@@ -13,6 +13,11 @@
   border-radius: 1rem 1rem 1rem 1rem;
 }
 
+.borderForm {
+  border: 3px solid #0b087a;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
 .center {
   display: flex;
   justify-content: center;
