@@ -18,6 +18,7 @@ $_SESSION['mensagem'] = '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMA</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-icons.css">
 
@@ -43,7 +44,7 @@ $_SESSION['mensagem'] = '';
     $sthestado->execute();
     ?>
 
-    <div align="center"> <text id="mensagem"><?= $mensagem ?></text></div>
+    <div class="center"> <text id="mensagem"><?= $mensagem ?></text></div>
     <div class="container w-100 mt-4 mb-4 ">
         <table class="table w-100 table-striped table-primary table-bordered table-hover table-responsive mt-4" id="novaPesquisa">
             <thead>
@@ -60,10 +61,10 @@ $_SESSION['mensagem'] = '';
                     <tr>
                         <td><?= $estado->nome ?></td>
                         <?php if ($estado->estado == 1) { ?>
-                            <td align="center"><a class="btn btn-outline-danger " href="includes/APIescola.php?pedido=inativaUser&id=<?= $estado->id ?>">Inativar</a></td>
+                            <td class="center"><a class="btn btn-outline-danger " href="includes/APIescola.php?pedido=inativaUser&id=<?= $estado->id ?>">Inativar</a></td>
                         <?php } else {
                         ?>
-                            <td align="center"><a class="btn btn-outline-success" href="includes/APIescola.php?pedido=ativaUser&id=<?= $estado->id ?>">Activar</a></td>
+                            <td class="center"><a class="btn btn-outline-success" href="includes/APIescola.php?pedido=ativaUser&id=<?= $estado->id ?>">Activar</a></td>
                         <?php } ?>
 
                     </tr>

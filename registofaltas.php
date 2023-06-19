@@ -17,6 +17,7 @@ $_SESSION['mensagem'] = '';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMA</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-icons.css">
 
@@ -89,9 +90,8 @@ $_SESSION['mensagem'] = '';
             </div>
 
         </form>
-        <div align="center"> <text id="mensagem"><?= $mensagem ?></text></div>
+        <div class="center"> <text id="mensagem"><?= $mensagem ?></text></div>
     </div>
-
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>

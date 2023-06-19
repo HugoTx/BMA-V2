@@ -18,6 +18,7 @@ $_SESSION['mensagem'] = '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMA</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-icons.css">
 
@@ -84,9 +85,8 @@ $_SESSION['mensagem'] = '';
                 <button type="submit" class="btn btn-outline-primary w-100 p-2 text-uppercase">Registar</button>
             </div>
         </form>
-        <div align="center"> <text id="mensagem"><?= $mensagem ?></text></div>
+        <div class="center"> <text id="mensagem"><?= $mensagem ?></text></div>
     </div>
-
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
