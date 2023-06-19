@@ -31,7 +31,7 @@ $_SESSION['mensagem'] = '';
     <?php
     require("includes/menu.php");
     ?>
-
+    
     <div class="text-center mt-2">
         <h1>LISTAGEM DE SUMÁRIOS</h1>
     </div>

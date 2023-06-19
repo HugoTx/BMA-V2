@@ -38,8 +38,8 @@ $_SESSION['mensagem'] = '';
 
     <!-- FORMULÁRIO DE REGISTO -->
 
-    <div class="container w-50 mt-5 mb-4 border border-5 ">
-        <form action="includes/APIsumarios.php?acao=enviasumario" method="POST">
+    <div class="container w-50 mt-5 mb-4 border border-5 " style="background-color: white">
+        <form action="includes/APIsumarios.php?acao=enviasumario" method="POST" style="color:black">
 
             <div class="form-group mt-4">
                 <label class="col-sm-2 control-label fw-bold">Lição Nº</label>

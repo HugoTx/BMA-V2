@@ -28,6 +28,7 @@ $_SESSION['mensagem'] = '';
     <?php
     require("includes/menu.php");
     ?>
+    
     <div class="text-center mt-2">
         <h1>REGISTO DE UTILIZADORES</h1>
     </div>
@@ -73,7 +74,7 @@ $_SESSION['mensagem'] = '';
             </div>
 
         </form>
-        <div align="center"> <text id="mensagem"><?= $mensagem ?></text></div>
+        <div class="center"> <text id="mensagem"><?= $mensagem ?></text></div>
     </div>
 
     <script src="jquery/jquery.min.js"></script>

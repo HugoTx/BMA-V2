@@ -28,6 +28,7 @@ $_SESSION['mensagem'] = '';
     <?php
     require("includes/menu.php");
     ?>
+   
     <div class="text-center mt-2">
         <h1>REGISTO DE FALTAS</h1>
     </div>
@@ -37,7 +38,7 @@ $_SESSION['mensagem'] = '';
 
     <!-- FORMULÁRIO DE REGISTO -->
 
-    <div class="container w-50 mt-5 mb-4 border border-5 ">
+    <div class="container w-50 mt-5 mb-4 border border-5" style="background-color: white">
         <form action="includes/APIfaltas.php?acao=registaFalta" method="POST">
 
             <div class="form-group mt-4">

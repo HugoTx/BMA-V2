@@ -30,6 +30,7 @@ $_SESSION['mensagem'] = '';
     <?php
     require("includes/menu.php");
     ?>
+    
     <div class="text-center mt-5">
         <text class="text-center" id="erro"><?= $boasVindas ?></text>
         <h1><?= $nomeProfessor ?></h1>
