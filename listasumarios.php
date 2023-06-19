@@ -36,7 +36,7 @@ $_SESSION['mensagem'] = '';
             <h1>LISTAGEM DE SUMÁRIOS</h1>
         </div>
         <div class="row text-center">
-            <a href="entrada.php"><button class="btn btn-outline-secondary" id="retroceder">Retroceder</button></a>
+            <a href="entrada.php"><button class="btn btn-outline-secondary mb-4" id="retroceder">Retroceder</button></a>
         </div>
 
 

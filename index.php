@@ -41,12 +41,16 @@ $_SESSION['erro'] = '';
                                     </div>
                                     <div class="form-outline mb-4">
                                         <input type="text" id="text" class="form-control form-control-lg"
-                                            name="username" />
+                                            name="username" required
+                                            oninvalid="setCustomValidity('Por favor, preencha este campo')"
+                                            oninput="setCustomValidity('')" />
                                         <label class="form-label">Utilizador</label>
                                     </div>
                                     <div class="form-outline mb-4">
                                         <input type="password" id="password" class="form-control form-control-lg"
-                                            name="password" />
+                                            name="password" required
+                                            oninvalid="setCustomValidity('Por favor, preencha este campo')"
+                                            oninput="setCustomValidity('')" />
                                         <label class="form-label">Password</label>
                                     </div>
                                     <div class="pt-1 mb-4 center">

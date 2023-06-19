@@ -36,7 +36,7 @@ $_SESSION['mensagem'] = '';
         <h1>LISTAGEM DE UTILIZADORES</h1>
     </div>
     <div class="row text-center">
-        <a href="entrada.php"><button class="btn btn-outline-secondary" id="retroceder">Retroceder</button></a>
+        <a href="entrada.php"><button class="btn btn-outline-secondary mb-4" id="retroceder">Retroceder</button></a>
     </div>
     <?php
     $sqlestado = 'SELECT nome, estado, id FROM users';
@@ -44,9 +44,12 @@ $_SESSION['mensagem'] = '';
     $sthestado->execute();
     ?>
 
-    <div class="center"> <text id="mensagem"><?= $mensagem ?></text></div>
+    <div class="center"> <text id="mensagem">
+            <?= $mensagem ?>
+        </text></div>
     <div class="container w-100 mt-4 mb-4 ">
-        <table class="table w-100 table-striped table-primary table-bordered table-hover table-responsive mt-4" id="novaPesquisa">
+        <table class="table w-100 table-striped table-primary table-bordered table-hover table-responsive mt-4"
+            id="novaPesquisa">
             <thead>
                 <tr>
                     <th scope="col" class="text-center ">Nome </th>
@@ -57,14 +60,18 @@ $_SESSION['mensagem'] = '';
             <tbody>
                 <?php
                 while ($estado = $sthestado->fetchObject()) {
-                ?>
-                    <tr>
-                        <td><?= $estado->nome ?></td>
+                    ?>
+                    <tr class="table-light">
+                        <td>
+                            <?= $estado->nome ?>
+                        </td>
                         <?php if ($estado->estado == 1) { ?>
-                            <td class="center"><a class="btn btn-outline-danger " href="includes/APIescola.php?pedido=inativaUser&id=<?= $estado->id ?>">Inativar</a></td>
+                            <td class="center"><a class="btn btn-outline-danger "
+                                    href="includes/APIescola.php?pedido=inativaUser&id=<?= $estado->id ?>">Inativar</a></td>
                         <?php } else {
-                        ?>
-                            <td class="center"><a class="btn btn-outline-success" href="includes/APIescola.php?pedido=ativaUser&id=<?= $estado->id ?>">Activar</a></td>
+                            ?>
+                            <td class="center"><a class="btn btn-outline-success"
+                                    href="includes/APIescola.php?pedido=ativaUser&id=<?= $estado->id ?>">Activar</a></td>
                         <?php } ?>
 
                     </tr>
@@ -75,7 +82,7 @@ $_SESSION['mensagem'] = '';
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
-        setTimeout(function() {
+        setTimeout(function () {
 
             $("#mensagem").hide()
 

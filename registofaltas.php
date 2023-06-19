@@ -92,16 +92,18 @@ $_SESSION['mensagem'] = '';
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-6 mt-2">
-                                        <div class="form-group">
-                                            <label>Falta</label>
-                                            <select name="falta" id="falta" class="form-control">
-                                                <option value="" selected>Falta</option>
-                                                <option value="Sim">Sim</option>
-                                                <option value="Não">Não</option>
-                                            </select>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6 mt-2">
+                                            <div class="form-group">
+                                                <label>Falta</label>
+                                                <select name="falta" id="falta" class="form-control">
+                                                    <option value="" selected>Falta</option>
+                                                    <option value="Sim">Sim</option>
+                                                    <option value="Não">Não</option>
+                                                </select>
+                                            </div>
                                         </div>
+                                        <div class="col-md-6 d-none"></div>
                                     </div>
                                     <div class="col-md-12 d-flex flex-row-reverse mt-2 me-2">
                                         <button type="submit" class="btn btn-outline-primary pt-2">Registar</button>

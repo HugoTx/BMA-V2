@@ -31,13 +31,13 @@ $_SESSION['mensagem'] = '';
     <?php
     require("includes/menu.php");
     ?>
-    
+
 
     <div class="text-center mt-2">
         <h1>LISTAGEM DE FALTAS</h1>
     </div>
     <div class="row text-center">
-        <a href="entrada.php"><button class="btn btn-outline-secondary" id="retroceder">Retroceder</button></a>
+        <a href="entrada.php"><button class="btn btn-outline-secondary mb-4" id="retroceder">Retroceder</button></a>
     </div>
 
 
@@ -72,7 +72,8 @@ $_SESSION['mensagem'] = '';
                                         <option value="Trompa">Trompa</option>
                                         <option value="Trompete">Trompete</option>
                                     </select>
-                                    <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarDisciplina" type="button">Procurar</button>
+                                    <button onclick="alterClass()" class="btn btn-outline-primary ml-3"
+                                        id="procurarDisciplina" type="button">Procurar</button>
                                 </div>
                             </div>
                         </div>
@@ -92,8 +93,10 @@ $_SESSION['mensagem'] = '';
                             <div class="container w-50">
                                 <div class="form-group mt-4">
                                     <form action="" method="POST">
-                                        <input type="text" class="form-group" id="nome" name="nomeAluno" placeholder="Turma / Aluno">
-                                        <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarAluno" type="button">Procurar</button>
+                                        <input type="text" class="form-group" id="nome" name="nomeAluno"
+                                            placeholder="Turma / Aluno">
+                                        <button onclick="alterClass()" class="btn btn-outline-primary ml-3"
+                                            id="procurarAluno" type="button">Procurar</button>
                                     </form>
                                 </div>
                             </div>
@@ -117,8 +120,10 @@ $_SESSION['mensagem'] = '';
                             <div class="container w-50">
                                 <div class="form-group mt-4">
                                     <form action="" method="POST">
-                                        <div class="mb-1"> Data inicial </div><input type="date" class="form-group" id="dataInicio" name="dataInicio">
-                                        <div class="mb-1 mt-1"> Data Final </div><input type="date" class="form-group" id="dataFim" name="dataFim">
+                                        <div class="mb-1"> Data inicial </div><input type="date" class="form-group"
+                                            id="dataInicio" name="dataInicio">
+                                        <div class="mb-1 mt-1"> Data Final </div><input type="date" class="form-group"
+                                            id="dataFim" name="dataFim">
                                         <div class="mb-1 mt-1">
                                             <select name="nomeDisciplina" id="disciplinaData" class="form-group">
                                                 <option value="" selected>Disciplina</option>
@@ -138,7 +143,8 @@ $_SESSION['mensagem'] = '';
                                                 <option value="Trompa">Trompa</option>
                                                 <option value="Trompete">Trompete</option>
                                             </select>
-                                            <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarDisciplinaData" type="button">Procurar</button>
+                                            <button onclick="alterClass()" class="btn btn-outline-primary ml-3"
+                                                id="procurarDisciplinaData" type="button">Procurar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -160,12 +166,16 @@ $_SESSION['mensagem'] = '';
                             <div class="container w-50">
                                 <div class="form-group mt-4">
                                     <form action="" method="POST">
-                                        <div class="mb-1"> Data inicial </div><input type="date" class="form-group" id="dataInicioAluno" name="dataInicio">
-                                        <div class="mb-1 mt-1"> Data Final </div><input type="date" class="form-group" id="dataFimAluno" name="dataFim">
+                                        <div class="mb-1"> Data inicial </div><input type="date" class="form-group"
+                                            id="dataInicioAluno" name="dataInicio">
+                                        <div class="mb-1 mt-1"> Data Final </div><input type="date" class="form-group"
+                                            id="dataFimAluno" name="dataFim">
                                         <div class="mb-1 mt-1">
-                                            <input type="text" class="form-group" id="nomeAlunoData" name="nomeAlunoData" placeholder="Turma / Aluno">
+                                            <input type="text" class="form-group" id="nomeAlunoData"
+                                                name="nomeAlunoData" placeholder="Turma / Aluno">
 
-                                            <button onclick="alterClass()" class="btn btn-outline-primary ml-3" id="procurarAlunoData" type="button">Procurar</button>
+                                            <button onclick="alterClass()" class="btn btn-outline-primary ml-3"
+                                                id="procurarAlunoData" type="button">Procurar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -179,7 +189,8 @@ $_SESSION['mensagem'] = '';
     </div>
 
     <div class="container w-100 mt-4 mb-4 d-none" id="table_sumario_faltas">
-        <table class="table w-100 table-striped table-primary table-bordered table-hover table-responsive mt-4" id="novaPesquisaFaltas">
+        <table class="table w-100 table-striped table-primary table-bordered table-hover table-responsive mt-4"
+            id="novaPesquisaFaltas">
             <thead>
                 <tr>
                     <th scope="col" class="text-center ">Lição </th>
@@ -192,15 +203,16 @@ $_SESSION['mensagem'] = '';
             <tbody> </tbody>
         </table>
         <div class="d-flex flex-row-reverse">
-            <button onclick="exportTableToExcel('novaPesquisaFaltas', 'faltas')" class="btn btn-outline-primary ml-3" id="retroceder">Exportar Excel</button>
+            <button onclick="exportTableToExcel('novaPesquisaFaltas', 'faltas')" class="btn btn-outline-primary ml-3"
+                id="retroceder">Exportar Excel</button>
         </div>
-        
+
     </div>
     <script src="js/xlsx.full.min.js"></script>
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
-        setTimeout(function() {
+        setTimeout(function () {
 
             $("#mensagem").hide()
 
