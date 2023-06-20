@@ -30,10 +30,14 @@ $_SESSION['mensagem'] = '';
     <?php
     require("includes/menu.php");
     ?>
-    
+
     <div class="text-center mt-5">
-        <text class="text-center" id="erro"><?= $boasVindas ?></text>
-        <h1><?= $nomeProfessor ?></h1>
+        <text class="text-center" id="erro">
+            <?= $boasVindas ?>
+        </text>
+        <h1>
+            <?= $nomeProfessor ?>
+        </h1>
     </div>
     <!-- Inserir Sumários Card  -->
     <div class="container mt-5">
@@ -133,7 +137,7 @@ $_SESSION['mensagem'] = '';
     <!-- REGISTAR PROFESSOR -->
     <?php
     if ($_SESSION['tipo'] == 1) {
-    ?>
+        ?>
         <div class="container mt-5">
             <div class="row">
                 <div class="col-xl col-md-6 mb-4 ms-2">
@@ -182,7 +186,7 @@ $_SESSION['mensagem'] = '';
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
-        setTimeout(function() {
+        setTimeout(function () {
 
             $("#erro").hide()
         }, 2000);

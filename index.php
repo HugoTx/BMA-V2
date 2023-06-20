@@ -31,8 +31,8 @@ $_SESSION['erro'] = '';
                             <div class="card-body p-4 p-lg-5 text-black">
                                 <form method="POST" action="includes/APIescola.php?pedido=verificaFuncionario"
                                     class="user">
-                                    <img src="imagens/bma/lira.jpg" class="rounded-circle mx-auto d-block" alt="lira"
-                                        style="width:150px; height:150px">
+                                    <img src="imagens/bma/lira.jpg" class="rounded-circle mx-auto d-block lira mb-2"
+                                        alt="lira" style="width:150px; height:150px">
                                     <div class="d-flex align-items-center mb-3 pb-1 center">
                                         <span class="h1 fw-bold mb-0">Escola de Música</span>
                                     </div>
