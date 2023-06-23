@@ -14,7 +14,9 @@ function verificaLogin($username, $password)
     $userPassword = $query->passUtilizador;
     $_SESSION['nomeProfessor'] = $query->nome;
     $_SESSION['tipo'] = $query->tipoAdmin;
-    $_SESSION['id'] = $query->id;
+    $_SESSION['user'] = $query->username;
+    $_SESSION['email'] = $query->email;
+    $_SESSION['passUt'] = $query->passUtilizador;
     $res = $query->contagem;
     if ($query->estado == 0 && $res == 1) {
         header("Location:../index.php");

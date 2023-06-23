@@ -9,7 +9,7 @@ $boasVindas = $_SESSION['boasVindas'];
 $_SESSION['boasVindas'] = '';
 $nomeProfessor = $_SESSION['nomeProfessor'];
 $_SESSION['mensagem'] = '';
-$id = $_SESSION['id'];
+
 
 ?>
 
@@ -35,8 +35,8 @@ $id = $_SESSION['id'];
                                 <?= $nomeProfessor ?>
                         </button>
                         <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Link 1</a></li>
-                                <li><a class="dropdown-item" href="#">Link 2</a></li>
+                                <li><a class="dropdown-item text-capitalize" href="modalUser.php"
+                                                id="dadosUser">Dados</a></li>
                                 <li><a class="dropdown-item text-capitalize" href="logout.php">Logout</a>
 
                                 </li>

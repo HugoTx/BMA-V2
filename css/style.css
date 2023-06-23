@@ -34,3 +34,10 @@
 .lira {
   filter: drop-shadow(12px 12px 7px rgba(0, 0, 0.7));
 }
+
+#togglePassword {
+  position: absolute;
+  top: 20%;
+  right: 12%;
+  cursor: pointer;
+}
