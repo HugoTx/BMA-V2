@@ -22,7 +22,6 @@ $_SESSION['mensagem'] = '';
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-icons.css">
-
 </head>
 
 <body>
@@ -114,7 +113,7 @@ $_SESSION['mensagem'] = '';
                 </a>
             </div>
             <!-- LOGOUT  Card -->
-            <div class="col-xl col-md-6 mb-4 ms-2">
+            <!-- <div class="col-xl col-md-6 mb-4 ms-2">
                 <a href="logout.php">
                     <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
@@ -133,64 +132,64 @@ $_SESSION['mensagem'] = '';
                 </a>
             </div>
         </div>
-    </div>
-    <!-- REGISTAR PROFESSOR -->
-    <?php
-    if ($_SESSION['tipo'] == 1) {
-        ?>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-xl col-md-6 mb-4 ms-2">
-                    <a href="registoUtilizadores.php">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2 text-center mt-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Registar Utilizador
+    </div> -->
+            <!-- REGISTAR PROFESSOR -->
+            <?php
+            if ($_SESSION['tipo'] == 1) {
+                ?>
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-xl col-md-6 mb-4 ms-2">
+                            <a href="registoUtilizadores.php">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2 text-center mt-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Registar Utilizador
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="bi bi-person-plus"></i>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-auto">
-                                        <i class="bi bi-person-plus"></i>
-                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <!-- ATIVAR DESATIVAR PROFESSOR -->
-                <div class="col-xl col-md-6 mb-4 ms-2">
-                    <a href="estadoUtilizadores.php">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2 text-center mt-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Ativar / Inativar Utilizador
+                        <!-- ATIVAR DESATIVAR PROFESSOR -->
+                        <div class="col-xl col-md-6 mb-4 ms-2">
+                            <a href="estadoUtilizadores.php">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2 text-center mt-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Ativar / Inativar Utilizador
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="bi bi-person-x"></i>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-auto">
-                                        <i class="bi bi-person-x"></i>
-                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    <?php } ?>
-    <?php
-    require('includes/footer.php');
-    ?>
-    <script src="jquery/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
-        setTimeout(function () {
+            <?php } ?>
+            <?php
+            require('includes/footer.php');
+            ?>
+            <script src="jquery/jquery.min.js"></script>
+            <script src="js/bootstrap.bundle.min.js"></script>
+            <script>
+                setTimeout(function () {
 
-            $("#erro").hide()
-        }, 2000);
-    </script>
+                    $("#erro").hide()
+                }, 2000);
+            </script>
 </body>
 
 </html>

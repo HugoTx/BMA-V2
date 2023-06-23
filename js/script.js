@@ -39,6 +39,7 @@ $(document).ready(function () {
   $('#procurarAluno').click(function () {
     $('#novaPesquisa tbody').find('tr').remove();
     var nome = $('#nome').val();
+    console.log(nome);
     $.getJSON(
       'includes/APIsumarios.php?acao=listaSumariosaluno&nome=' + nome,
       function (listaSumariosaluno) {
@@ -159,6 +160,11 @@ function alterClass() {
   const tableClass = document.getElementById('table_sumario_faltas');
 
   tableClass.classList.remove('d-none');
+}
+
+function limparInput() {
+  const clean = document.getElementById('nome');
+  clean.value = '';
 }
 
 // Exportar para Excel ****************************************************************

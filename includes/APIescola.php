@@ -6,14 +6,15 @@ $pedido = $_GET["pedido"] ?? '';
 function verificaLogin($username, $password)
 {
     require("connection.php");
-    $login = "SELECT passUtilizador, username, nome, email, tipoAdmin,estado, count(*) as contagem FROM users WHERE username = :nome";
-    $sth  = $dbh->prepare($login);
+    $login = "SELECT id, passUtilizador, username, nome, email, tipoAdmin,estado, count(*) as contagem FROM users WHERE username = :nome";
+    $sth = $dbh->prepare($login);
     $sth->bindParam(":nome", $username);
     $sth->execute();
     $query = $sth->fetchObject();
     $userPassword = $query->passUtilizador;
     $_SESSION['nomeProfessor'] = $query->nome;
     $_SESSION['tipo'] = $query->tipoAdmin;
+    $_SESSION['id'] = $query->id;
     $res = $query->contagem;
     if ($query->estado == 0 && $res == 1) {
         header("Location:../index.php");
@@ -45,7 +46,7 @@ function registaUtilizadores($nome, $pass, $tipoAdmin, $username, $email)
     } else {
         require("connection.php");
         $sql = "INSERT INTO users (username,email, passUtilizador, nome, tipoAdmin) VALUES(:username,:email, :passo, :nome, :tipoAdmin)";
-        $sth  = $dbh->prepare($sql);
+        $sth = $dbh->prepare($sql);
         $sth->bindParam(":nome", $nome);
         $sth->bindParam(":passo", $pass);
         $sth->bindParam(":tipoAdmin", $tipoAdmin);
@@ -65,13 +66,13 @@ function alteraEstado($id, $estado)
     require("connection.php");
     if ($estado == 0) {
         $sql = "UPDATE users SET estado = 1 WHERE id = :id";
-        $sth  = $dbh->prepare($sql);
+        $sth = $dbh->prepare($sql);
         $sth->bindParam(":id", $id);
         $sth->execute();
     }
     if ($estado == 1) {
         $sql = "UPDATE users SET estado = 0 WHERE id = :id";
-        $sth  = $dbh->prepare($sql);
+        $sth = $dbh->prepare($sql);
         $sth->bindParam(":id", $id);
         $sth->execute();
     }
