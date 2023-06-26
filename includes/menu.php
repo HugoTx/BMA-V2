@@ -35,11 +35,11 @@ $_SESSION['mensagem'] = '';
                                 <?= $nomeProfessor ?>
                         </button>
                         <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-capitalize" href="modalUser.php"
+                                <li><a class="dropdown-item text-capitalize" href="dadosUser.php"
                                                 id="dadosUser">Dados</a></li>
-                                <li><a class="dropdown-item text-capitalize" href="logout.php">Logout</a>
-
-                                </li>
+                                <li><a class="dropdown-item text-capitalize" href="alterarSenha.php"
+                                                id="dadosUser">Alterar Senha</a></li>
+                                <li><a class="dropdown-item text-capitalize" href="logout.php">Logout</a></li>
                         </ul>
                 </div>
         </div>

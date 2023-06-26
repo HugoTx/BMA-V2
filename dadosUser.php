@@ -53,7 +53,7 @@ $passUt = $_SESSION['passUt'];
                 <div class="card mt-2 mx-auto p-4 bg-light">
                     <div class="card-body bg-light">
                         <div class="container">
-                            <form action="includes/APIdadosUser.php?pedido=registaUtilizadores" method="POST">
+                            <form action="" method="POST">
                                 <div class="controls">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -68,8 +68,8 @@ $passUt = $_SESSION['passUt'];
                                                 <p>
                                                     <label>Password</label>
                                                     <input type="password" class="form-control" name="passwordU"
-                                                        value="<?= $passUt ?>" id="password"><i class="bi bi-eye-slash"
-                                                        id="togglePassword"></i>
+                                                        value="<?= $passUt ?>" readonly id="password"><i
+                                                        class="bi bi-eye-slash" id="togglePassword"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -102,8 +102,8 @@ $passUt = $_SESSION['passUt'];
                                     </div>
 
 
-                                    <div class="col-md-12 d-flex flex-row-reverse mt-2 me-2">
-                                        <button type="submit" class="btn btn-outline-primary pt-2">Registar</button>
+                                    <div class="col-md-12 d-flex flex-row-reverse mt-2 me-2 d-hidden">
+                                        <button type="submit" class="btn btn-outline-primary pt-2">Atualizar</button>
                                     </div>
 
                             </form>
@@ -120,27 +120,20 @@ $passUt = $_SESSION['passUt'];
                                 $("#mensagem").hide()
 
                             }, 2000);
-                        </script>
-                        <script>
-                            const togglePassword = document.querySelector("#togglePassword");
-                            const password = document.querySelector("#password");
 
-                            togglePassword.addEventListener("click", function () {
+                            const togglePassword = document.querySelector('#togglePassword');
+                            const password = document.querySelector('#password');
+
+                            togglePassword.addEventListener('click', function () {
                                 // toggle the type attribute
-                                const type = password.getAttribute("type") === "password" ? "text" : "password";
-                                password.setAttribute("type", type);
+                                const type =
+                                    password.getAttribute('type') === 'password' ? 'text' : 'password';
+                                password.setAttribute('type', type);
 
                                 // toggle the icon
-                                this.classList.toggle("bi-eye");
-                            });
-
-                            // prevent form submit
-                            const form = document.querySelector("form");
-                            form.addEventListener('submit', function (e) {
-                                e.preventDefault();
+                                this.classList.toggle('bi-eye');
                             });
                         </script>
-
 </body>
 
 </html>

@@ -47,10 +47,11 @@ $_SESSION['erro'] = '';
                                         <label class="form-label">Utilizador</label>
                                     </div>
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="password" class="form-control form-control-lg"
+                                        <input type="password" id="passwordIndex" class="form-control form-control-lg"
                                             name="password" required
                                             oninvalid="setCustomValidity('Por favor, preencha este campo')"
-                                            oninput="setCustomValidity('')" />
+                                            oninput="setCustomValidity('')" /><i class="bi bi-eye-slash"
+                                            id="togglePasswordIndex"></i>
                                         <label class="form-label">Password</label>
                                     </div>
                                     <div class="pt-1 mb-4 center">
@@ -79,6 +80,20 @@ $_SESSION['erro'] = '';
         $("#erro").hide()
 
     }, 2000);
+
+
+    const togglePasswordIndex = document.querySelector('#togglePasswordIndex');
+    const passwordIndex = document.querySelector('#passwordIndex');
+
+    togglePasswordIndex.addEventListener('click', function () {
+        // toggle the type attribute
+        const type =
+            passwordIndex.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordIndex.setAttribute('type', type);
+
+        // toggle the icon
+        this.classList.toggle('bi-eye');
+    });
 </script>
 
 </body>

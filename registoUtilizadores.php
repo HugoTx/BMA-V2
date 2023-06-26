@@ -69,7 +69,7 @@ $_SESSION['mensagem'] = '';
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>email</label>
+                                                <label>Email</label>
                                                 <input type="email" class="form-control" id="email" name="emailU">
                                             </div>
                                         </div>

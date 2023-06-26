@@ -162,11 +162,6 @@ function alterClass() {
   tableClass.classList.remove('d-none');
 }
 
-function limparInput() {
-  const clean = document.getElementById('nome');
-  clean.value = '';
-}
-
 // Exportar para Excel ****************************************************************
 function exportTableToExcel(tableId, filename = 'tabela_excel') {
   var wb = XLSX.utils.table_to_book(document.getElementById(tableId), {
