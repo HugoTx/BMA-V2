@@ -17,6 +17,7 @@ function verificaLogin($username, $password)
     $_SESSION['user'] = $query->username;
     $_SESSION['email'] = $query->email;
     $_SESSION['passUt'] = $query->passUtilizador;
+    $_SESSION['id'] = $query->id;
     $res = $query->contagem;
     if ($query->estado == 0 && $res == 1) {
         header("Location:../index.php");

@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 
 if (!isset($_SESSION['boasVindas'])) {
@@ -18,7 +19,7 @@ $_SESSION['mensagem'] = '';
         class="container-fluid d-flex justify-content-between align-items-center text-uppercase text-white color-background">
         <a href="entrada.php"><img src="imagens/bma/bonequito2.jpg" alt="Logo" width="100" height="90"
                         class="d-inline-block align-text-center rounded-circle mt-2 mb-2"></a>
-        Escola de Música - Banda Musical de Arouca
+        <p id="image">Escola de Música - Banda Musical de Arouca</p>
 
         <!-- redes sociais
         <div class="d-flex flex-row-reverse mt-1 me-2">
@@ -31,7 +32,8 @@ $_SESSION['mensagem'] = '';
         </div> -->
         <div class="d-flex flex-row-reverse mt-1 me-2">
                 <div class="dropdown">
-                        <button type="button" class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+                        <button type="button" class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown"
+                                id="btn-dados">
                                 <?= $nomeProfessor ?>
                         </button>
                         <ul class="dropdown-menu">

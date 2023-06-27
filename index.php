@@ -1,6 +1,6 @@
 <?php
-session_start();
 error_reporting(E_ALL ^ E_WARNING);
+session_start();
 $erro = $_SESSION['erro'];
 $_SESSION['erro'] = '';
 ?>

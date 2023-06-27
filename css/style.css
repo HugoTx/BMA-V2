@@ -44,8 +44,20 @@
 
 #togglePasswordActual {
   position: absolute;
-  top: 25%;
+  top: 21%;
   right: 12%;
+  cursor: pointer;
+}
+#togglePasswordNew1 {
+  position: absolute;
+  top: 46%;
+  right: 12%;
+  cursor: pointer;
+}
+#togglePasswordNew {
+  position: absolute;
+  top: 46%;
+  right: 54%;
   cursor: pointer;
 }
 
@@ -58,9 +70,27 @@
 
 @media only screen and (max-width: 600px) {
   #togglePassword {
-    position: absolute;
-    top: 28%;
-    right: 20%;
-    cursor: pointer;
+    display: none;
+  }
+
+  #togglePasswordActual {
+    display: none;
+  }
+  #togglePasswordNew1 {
+    display: none;
+  }
+  #togglePasswordNew {
+    display: none;
+  }
+
+  #togglePasswordIndex {
+    display: none;
+  }
+  #image {
+    visibility: hidden;
+  }
+
+  #btn-dados {
+    font-size: 10px;
   }
 }

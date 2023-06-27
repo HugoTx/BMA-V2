@@ -1,3 +1,60 @@
+// color input old password
+function old(old) {
+  var pass = old;
+  if (document.getElementById('password').value == pass) {
+    document.getElementById('password').style.backgroundColor = '#8CC63E';
+  } else {
+    document.getElementById('password').style.backgroundColor = '#EE2B39';
+  }
+}
+
+//color input new password
+function check() {
+  if (
+    document.getElementById('passwordNew').value ==
+      document.getElementById('passwordNew1').value &&
+    document.getElementById('passwordNew').value.length > 7
+  ) {
+    // document.getElementById('passwordNew').style.backgroundColor = '#8CC63E';
+    document.getElementById('passwordNew1').style.backgroundColor = '#8CC63E';
+    document.getElementById('actualizar').classList.remove('disabled');
+  } else {
+    // document.getElementById('passwordNew').style.backgroundColor = '#EE2B39';
+    document.getElementById('passwordNew1').style.backgroundColor = '#EE2B39';
+    document.getElementById('actualizar').classList.add('disabled');
+  }
+}
+
+// Toggle
+function toggle() {
+  const togglePassword = document.querySelector('#togglePasswordActual');
+  const password = document.querySelector('#password');
+
+  togglePassword.addEventListener('click', function () {
+    const type =
+      password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('bi-eye');
+  });
+
+  const togglePassword1 = document.querySelector('#togglePasswordNew');
+  const password1 = document.querySelector('#passwordNew');
+  togglePassword1.addEventListener('click', function () {
+    const type =
+      password1.getAttribute('type') === 'password' ? 'text' : 'password';
+    password1.setAttribute('type', type);
+    this.classList.toggle('bi-eye');
+  });
+
+  const togglePassword2 = document.querySelector('#togglePasswordNew1');
+  const password2 = document.querySelector('#passwordNew1');
+  togglePassword2.addEventListener('click', function () {
+    const type =
+      password2.getAttribute('type') === 'password' ? 'text' : 'password';
+    password2.setAttribute('type', type);
+    this.classList.toggle('bi-eye');
+  });
+}
 //***************** LISTAR SUMÁRIOS ************************* -->
 //***************** POR DISCIPLINA ************************** -->
 $(document).ready(function () {
@@ -158,7 +215,6 @@ $(document).ready(function () {
 // Mostrar a table
 function alterClass() {
   const tableClass = document.getElementById('table_sumario_faltas');
-
   tableClass.classList.remove('d-none');
 }
 
