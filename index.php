@@ -1,8 +1,8 @@
 <?php
-error_reporting(E_ALL ^ E_WARNING);
 session_start();
 $erro = $_SESSION['erro'];
 $_SESSION['erro'] = '';
+error_reporting(E_ALL ^ E_WARNING);
 ?>
 <!DOCTYPE html>
 <html>
