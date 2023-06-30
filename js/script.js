@@ -2,9 +2,11 @@
 function old(old) {
   var pass = old;
   if (document.getElementById('password').value == pass) {
-    document.getElementById('password').style.backgroundColor = '#8CC63E';
+    document.getElementById('password').classList.remove('is-invalid');
+    document.getElementById('password').classList.add('is-valid');
   } else {
-    document.getElementById('password').style.backgroundColor = '#EE2B39';
+    document.getElementById('actualizar').classList.add('disabled');
+    document.getElementById('password').classList.add('is-invalid');
   }
 }
 
@@ -15,12 +17,12 @@ function check() {
       document.getElementById('passwordNew1').value &&
     document.getElementById('passwordNew').value.length > 7
   ) {
-    // document.getElementById('passwordNew').style.backgroundColor = '#8CC63E';
-    document.getElementById('passwordNew1').style.backgroundColor = '#8CC63E';
+    document.getElementById('passwordNew1').classList.add('is-valid');
+    document.getElementById('passwordNew').classList.remove('is-invalid');
+    document.getElementById('passwordNew1').classList.remove('is-invalid');
     document.getElementById('actualizar').classList.remove('disabled');
   } else {
-    // document.getElementById('passwordNew').style.backgroundColor = '#EE2B39';
-    document.getElementById('passwordNew1').style.backgroundColor = '#EE2B39';
+    document.getElementById('passwordNew1').classList.add('is-invalid');
     document.getElementById('actualizar').classList.add('disabled');
   }
 }

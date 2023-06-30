@@ -69,8 +69,7 @@ $id = $_SESSION['id'];
                                                 <p>
                                                     <label>Password Atual</label>
                                                     <input type="password" class="form-control" name="passwordU"
-                                                        onkeyup="old(`<?php echo $passUt ?>`)" id="password" required><i
-                                                        class="bi bi-eye-slash" id="togglePasswordActual"></i>
+                                                        onkeyup="old(`<?php echo $passUt ?>`)" id="password" required>
                                             </div>
                                         </div>
                                     </div>
@@ -79,16 +78,14 @@ $id = $_SESSION['id'];
                                             <div class="form-group">
                                                 <label>Nova Password</label>
                                                 <input type="password" class="form-control" id="passwordNew"
-                                                    name="passwordNew" onkeyup="check()"><i class="bi bi-eye-slash"
-                                                    id="togglePasswordNew"></i>
+                                                    name="passwordNew" onkeyup="check()">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Confirmação Nova Password</label>
                                                 <input type="password" class="form-control" id="passwordNew1"
-                                                    name="passwordNew1" onkeyup="check()"><i class="bi bi-eye-slash"
-                                                    id="togglePasswordNew1"></i>
+                                                    name="passwordNew1" onkeyup="check()">
                                             </div>
                                         </div>
                                         <div class="col-md-6 d-none">
@@ -117,6 +114,7 @@ $id = $_SESSION['id'];
                         <script src="jquery/jquery.min.js"></script>
                         <script src="js/bootstrap.bundle.min.js"></script>
                         <script src="js/script.js"></script>
+                        <script>toggle();</script>
 
 </body>
 

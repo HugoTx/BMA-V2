@@ -7,14 +7,15 @@ if (!isset($_SESSION['boasVindas'])) {
 $mensagem = $_SESSION['mensagem'];
 $_SESSION['mensagem'] = '';
 $tipoAdmin = $_SESSION['tipo'];
+$user = $_SESSION['user'];
+$email = $_SESSION['email'];
+$passUt = $_SESSION['passUt'];
+
 if ($tipoAdmin == 0) {
     $tipoAdmin = 'Professor';
 } else {
     $tipoAdmin = 'Administrador';
 }
-$user = $_SESSION['user'];
-$email = $_SESSION['email'];
-$passUt = $_SESSION['passUt'];
 
 ?>
 
