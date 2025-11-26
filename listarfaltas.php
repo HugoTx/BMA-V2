@@ -27,7 +27,7 @@ $_SESSION['mensagem'] = '';
 </head>
 
 <body>
-    <!--logo-->
+    <!--lo ehbadçjfçsjf go-->
     <?php
     require("includes/menu.php");
     ?>
@@ -212,7 +212,7 @@ $_SESSION['mensagem'] = '';
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
-        setTimeout(function () {
+        setTimeout(function() {
 
             $("#mensagem").hide()
 
